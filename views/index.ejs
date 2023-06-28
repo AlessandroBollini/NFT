@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- myCss.style %>
+        <title>App</title>
+</head>
+
+<body>
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="textArea">
+            <h1>Richiedi il tuo NFT</h1>
+        </div>
+        <div class="textArea">
+            <div id="lds-spinner" style="display: none;">
+                <div class="lds-spinner">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <br />
+                <br />
+                <h3>Per favore attendi qualche secondo senza chiudere o fare il refresh della pagina...</h3>
+            </div>
+            <div id="details">
+                <h2>Inserisci l'indirizzo esadecimale del tuo wallet</h2>
+                <h3>
+                    <br>
+                    <br>
+                    <form name="myForm" action="/" method="POST">
+                        <div>
+                            <input class="addressForm" type="text" class="form-control" placeholder="address"
+                                name="userAddress" id="address" pattern="[A-Za-z0-9]{42}" required>
+                        </div>
+                        <br>
+                        <br>
+                        <button class="button" id="button" type="submit" onclick="showLoader()">Invia</button>
+                    </form>
+                    <br>
+                    <br>
+                    ATTENZIONE: il minting del tuo NFT richiederà qualche istante.
+                    <div class="important">
+                        <h2>Non effettuare il refresh della pagina!</h2>
+                    </div>
+                </h3>
+                <p><a href="https://sisalgroup.sharepoint.com/:w:/s/InnovationLab2/Ecz5nGd8yhVFpVfxAu0gTpYBTTWGtHz7lmvpUCdX6QawXw?e=OX4ptn&wdOrigin=TEAMS-ELECTRON.p2p.bim&wdExp=TEAMS-CONTROL&wdhostclicktime=1687795140434&web=1">Qui l'informativa alla privacy</a></p>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="footerlanding">
+            <p>Sisal Envisioning Days</p>
+            <br>
+            <br>
+        </div>
+    </div>
+
+    <script>
+        function showLoader() {
+            var x = document.forms["myForm"]["userAddress"].value;
+            if (x == "") {
+                alert("Campo obbligatorio!");
+                return false;
+            } else {
+                document.getElementById("lds-spinner").style['display'] = 'block';
+                document.getElementById("details").style['display'] = 'none';
+            }
+        }
+
+        const address = document.getElementById("address");
+
+        address.addEventListener("input", (event) => {
+            if (address.validity.patternMismatch) {
+                console.log("Address is not valid");
+                address.setCustomValidity("L'address inserito non è corretto!");
+                address.reportValidity();
+                document.getElementById("button").disabled = true;
+            } else {
+                document.getElementById("button").disabled = false;
+                address.setCustomValidity("")
+            }
+        })
+    </script>
+</body>
+
+</html>

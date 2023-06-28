@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- myCss.style %>
+        <title>NFTapp</title>
+</head>
+
+<body>
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div id="loader" class="center"></div>
+        <div class="textArea">
+            <h2>Hai ricevuto il tuo NFT. Puoi trovarlo nella sezione nascosti del tuo account Opensea o importarlo sul
+                tuo
+                wallet Metamask.
+                <br>
+                Per importarlo segui i seguenti step:<br>
+                <br></br>
+                1.Entra nella sezione "import token"<br>
+                <br></br>
+                2.Compila il form inserendo i seguenti dati:<br>
+                <br></br>
+                address del contratto: <%=contract%><br>
+                    <br></br>
+                    id: <%=id%><br>
+                        <br></br>
+                        Dovresti essere ora in grado di trovarlo sul tuo wallet. Contattaci in caso di problemi.<br>
+            </h2>
+            <br></br>
+            <br></br>
+            <h2>Grazie!</h2>
+        </div>
+        <div class="footerlanding">
+            <p>Sisal Envisioning Days</p>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
