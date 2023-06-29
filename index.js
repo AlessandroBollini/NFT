@@ -61,6 +61,8 @@ app.post('/', encodeUrl, async (req, res) => {
         try {
             let metadata = await SELECT.getNftMetaData(req.body.userAddress, processId);
             id = metadata.tokenId;
+            console.log(metadata.lastUpdate);
+            console.log(validateDate(metadata.lastUpdate));
             if (validateDate(metadata.lastUpdate)) {
                 await sleep(Math.floor(Math.random() * 5));
                 nonce = nonce + 1;
