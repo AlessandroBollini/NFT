@@ -17,7 +17,7 @@ exports.validateDate = (date) => {
         if (user.month > env.month) {
             console.log(3);
             return false;
-        } else if (user.month < env.mont) {
+        } else if (user.month < env.month) {
             console.log(4);
             return true;
         } else {
