@@ -8,15 +8,20 @@ exports.validateDate = (date) => {
     const env = formatDate(process.env.ACTUAL_DATE);
     const user = formatDate(date);
     if (user.year > env.year) {
+        console.log(1);
         return false;
     } else if (user.year < env.year) {
+        console.log(2);
         return true;
     } else {
         if (user.month > env.month) {
+            console.log(3);
             return false;
         } else if (user.month < env.mont) {
+            console.log(4);
             return true;
         } else {
+            console.log(5);
             return (user.day < env.day);
         }
     }
